@@ -1,50 +1,26 @@
-🤖 Agent Cooperation Protocol: Vibe Coding Monetization (Cost-Effective)
-1. Project Mission & North Star Metric
-Goal: 90일 이내에 AI 기반 서비스를 런칭하고 월 매출 1,000,000 KRW 달성.
+# 🤖 Agent Cooperation Protocol (v2.0)
 
-North Star Metric: 아이디어-to-배포 소요 시간 최소화 및 운영 비용 최적화.
+## 1. Role Definition & Intelligent Allocation
 
-2. Strategic Model Mix (Efficiency & Cost)
-Main Brain: Gemini 1.5 Pro (Architecture, Deep Research, 1M+ Context) - AI Pro 구독 활용.
+| 에이전트 | 핵심 역할 | 권장 모델 및 강점 |
+| :--- | :--- | :--- |
+| **Jules** | **Repo Guardian**: 아키텍처 설계, 대규모 리팩토링, PR 자동화. | Gemini 1.5 Pro (1M+ 컨텍스트 활용). |
+| **Cursor** | **Logic Builder**: 핵심 비즈니스 로직 구현 및 UI/UX 정밀 코딩. | Claude 3.5 Sonnet (추론) / DeepSeek-V3 (비용 절감). |
+| **Antigravity** | **Operation Agent**: 환경 설정, 터미널 제어, E2E 자동 테스트. | Gemini 1.5 Flash (압도적 속도 및 저비용). |
 
-Logic/UI Specialist: Claude 3.5 Sonnet (Primary) or DeepSeek-V3 (Cost-effective alternative for Cursor).
+## 2. Lifecycle Execution Protocol (Cost-Optimized)
 
-Fast Worker: Gemini 1.5 Flash (Automation, Unit Testing, Log Analysis) - 고속 처리 및 저비용/무료 티어 활용.
+1. **Planning (Day 1-3):** **Deep Research(Pro)**를 통해 수익 시장을 발굴하고 기능을 명세화한다.
+2. **Scaffolding (Day 4-7):** **Antigravity(Flash)**가 자율적으로 개발 환경을 세팅한다.
+3. **Vibe Build (Day 8-30):** **Cursor(DeepSeek)**로 빠르게 MVP를 개발하고, 핵심 로직은 **Claude 3.5**로 검증한다.
+4. **Verification (Day 31-40):** **Antigravity Browser Agent**가 결제 및 가입 시나리오를 자동 테스트한다.
+5. **Operation (Day 41-90):** 로그 분석 및 반복적 개선 작업은 **Flash** 모델로 빠르게 처리하여 비용을 아낀다.
 
-3. Role Definition: Intelligent Resource Allocation
-A. Jules (Autonomous Repo Agent - Gemini 1.5 Pro)
-Role: 전체 프로젝트 아키텍처 설계 및 대규모 리팩토링.
+## 3. Conflict Resolution & Decision Making
+- **중복 작업 방지:** Jules는 백엔드/구조를, Cursor는 프론트엔드/로직을 우선한다.
+- **비용 정책:** 높은 지능이 필요 없는 모든 단순 코딩/테스트는 반드시 **Gemini 1.5 Flash**를 사용한다.
+- **보안 수칙:** 모든 에이전트는 `.gitignore`를 준수하며 API 키 노출을 철저히 감시한다.
 
-Focus: 100만 토큰 컨텍스트를 활용한 리포지토리 전체 분석 및 구조적 일관성 유지.
-
-B. Cursor & Claude/DeepSeek (Logic & UI Specialist)
-Role: 핵심 비즈니스 로직 구현 및 고도화된 UI/UX 개발 (Pair Programming).
-
-Focus: * Claude 3.5 Sonnet: 복잡한 알고리즘 및 수익화 핵심 로직.
-
-DeepSeek-V3: 일반적인 기능 구현 및 코드 수정 시 비용 절감을 위한 메인 엔진으로 활용.
-
-C. Antigravity IDE (Verification & Speed - Gemini 1.5 Flash)
-Role: 자율 환경 구축 및 실시간 성능/작동 검증.
-
-Focus: * Gemini 1.5 Flash: 압도적인 속도로 유닛 테스트 생성, 단순 에러 디버깅, 환경 변수 세팅 수행.
-
-Browser Agent: 브라우저를 통한 결제/가입 시나리오 자동 테스트.
-
-4. Lifecycle Protocol (Cost-Optimized)
-Planning (Day 1-3): **Deep Research (Pro)**로 수익 시장 발굴 및 역기획.
-
-Scaffolding (Day 4-7): **Antigravity (Flash)**가 자율적으로 개발 환경 세팅.
-
-Vibe Build (Day 8-30): **Cursor (DeepSeek)**로 빠르게 MVP 기능 개발, 핵심 로직은 Claude 3.5로 검증.
-
-Auto QA (Day 31-40): Gemini 1.5 Flash가 수백 개의 테스트 케이스를 저비용으로 생성 및 실행.
-
-Growth (Day 41-90): 사용자 피드백 분석 및 루틴한 개선 작업은 Flash 모델로 빠르게 처리.
-
-5. Decision Making Matrix (Model Priority)
-높은 지능/전체 맥락 필요: Gemini 1.5 Pro (Jules).
-
-정교한 코딩/추론 필요: Claude 3.5 Sonnet 또는 DeepSeek-V3 (Cursor).
-
-단순 반복/빠른 피드백 필요: Gemini 1.5 Flash (Antigravity).
+## 4. Definition of Done (DoD)
+- 모든 코드는 실제 배포(Production)가 가능한 수준이어야 함.
+- 모든 기능 추가 시 관련 환경 변수와 README 로드맵이 업데이트되어야 함.
