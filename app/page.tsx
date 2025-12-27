@@ -1,32 +1,19 @@
-import React from 'react';
+'use client';
 
-// Card Component
-interface CardProps {
-  title: string;
-  children: React.ReactNode;
-  className?: string;
-}
-
-const Card = ({ title, children, className = "" }: CardProps) => (
-  <div className={`bg-gray-800 border border-gray-700 rounded-lg p-5 shadow-lg ${className}`}>
-    <h3 className="text-xl font-bold text-blue-400 mb-4 border-b border-gray-700 pb-2">{title}</h3>
-    {children}
-  </div>
-);
-
-// Stat Component
-const Stat = ({ label, value, trend }: { label: string; value: string; trend?: string }) => (
-  <div className="flex justify-between items-center mb-2">
-    <span className="text-gray-400">{label}</span>
-    <div className="text-right">
-      <div className="text-lg font-semibold text-white">{value}</div>
-      {trend && <div className="text-xs text-green-400">{trend}</div>}
-    </div>
-  </div>
-);
+import React, { useState } from 'react';
+import { SummaryCard } from '../components/SummaryCard';
+import { NewsCard } from '../components/NewsCard';
+import { ComplaintsCard } from '../components/ComplaintsCard';
+import { SentimentChart } from '../components/SentimentChart';
+import { RegionFilter } from '../components/RegionFilter';
 
 export default function Dashboard() {
   const regions = ["삼양", "도련", "봉개"];
+  const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
+
+  const filteredRegions = selectedRegion
+    ? regions.filter((r) => r === selectedRegion)
+    : regions;
 
   return (
     <div className="min-h-screen p-8 max-w-7xl mx-auto">
@@ -46,67 +33,30 @@ export default function Dashboard() {
 
       {/* Summary Section - Placeholder for AI Summary */}
       <section className="mb-8">
-        <Card title="🤖 AI 정무적 요약 (Beta)">
-          <div className="bg-gray-900/50 p-4 rounded text-gray-300 leading-relaxed animate-pulse">
-            Gemini API를 통해 지역 이슈를 분석하고 있습니다...
-            <br />
-            (API 연동 후 실제 요약 데이터가 표시됩니다.)
-          </div>
-        </Card>
+        <SummaryCard />
       </section>
+
+      {/* Region Filter */}
+      <RegionFilter
+        regions={regions}
+        selectedRegion={selectedRegion}
+        onSelectRegion={setSelectedRegion}
+      />
 
       {/* Main Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {regions.map((region) => (
+        {filteredRegions.map((region) => (
           <div key={region} className="space-y-6">
             <h2 className="text-2xl font-bold text-white border-l-4 border-blue-600 pl-3">{region} 지역</h2>
 
             {/* News Section */}
-            <Card title="📰 주요 뉴스">
-              <ul className="space-y-3 text-sm text-gray-300">
-                <li className="flex gap-2">
-                    <span className="text-blue-400 shrink-0">●</span>
-                    <span className="line-clamp-2 hover:text-white cursor-pointer transition">{region} 지역 발전 협의회 개최 소식</span>
-                </li>
-                <li className="flex gap-2">
-                    <span className="text-blue-400 shrink-0">●</span>
-                    <span className="line-clamp-2 hover:text-white cursor-pointer transition">주민 편의 시설 확충 관련 보도</span>
-                </li>
-                <li className="flex gap-2">
-                    <span className="text-gray-600 shrink-0">●</span>
-                    <span className="text-gray-500">관련 기사 없음</span>
-                </li>
-              </ul>
-            </Card>
+            <NewsCard region={region} />
 
             {/* Complaints Section */}
-            <Card title="📢 민원 동향">
-                <Stat label="주간 민원 건수" value="12건" trend="▲ 2" />
-                <div className="mt-4 space-y-2">
-                    <div className="bg-red-900/20 text-red-300 p-2 rounded text-xs border border-red-900/50">
-                        <span className="font-bold">[긴급]</span> 도로 파손 보수 요청
-                    </div>
-                    <div className="bg-gray-700/50 p-2 rounded text-xs text-gray-400">
-                        가로등 설치 문의
-                    </div>
-                </div>
-            </Card>
+            <ComplaintsCard />
 
             {/* SNS Section */}
-            <Card title="💬 SNS 여론">
-                <div className="flex items-center gap-2 mb-3">
-                    <span className="text-2xl font-bold text-blue-400">긍정 65%</span>
-                    <span className="text-sm text-gray-500">/ 부정 12%</span>
-                </div>
-                <div className="space-y-2">
-                     <div className="text-xs text-gray-400 bg-gray-900 p-2 rounded">
-                        "우리 동네에도 이런 변화가 필요해요 #김태관"
-                     </div>
-                     <div className="text-xs text-gray-400 bg-gray-900 p-2 rounded">
-                        "교통 문제 해결해주세요"
-                     </div>
-                </div>
-            </Card>
+            <SentimentChart />
           </div>
         ))}
       </div>
